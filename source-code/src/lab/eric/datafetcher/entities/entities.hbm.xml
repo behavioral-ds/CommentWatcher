@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!--
+  Copyright (c) 2013 Marian-Andrei RIZOIU.
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the GNU Public License v3.0
+  which accompanies this distribution, and is available at
+  http://www.gnu.org/licenses/gpl.html
+  
+  Contributors:
+      Marian-Andrei RIZOIU - initial API and implementation
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="lab.eric.datafetcher.entities" default-access="field" default-cascade="none">
+
+	<class name="Author" table="auteur">
+		<id name="name" column="nom_auteur"></id>		
+	</class>
+	
+	<class name="Title" table="titre">
+		<id name="title" column="titre"></id>		
+	</class>
+	
+	<class name="Url" table="url">
+		<id name="url" column="url"></id>
+	</class>
+	
+	<class name="Citation" table="citation">
+	    
+	    <id name="id" column="id">
+			<generator class="increment"/>
+		</id>
+		
+	    <property name="citationType" column="citation_type"/>
+	    <many-to-one name="authorSource" column="author_source" class="Author" not-null="false" cascade="none"/>
+	   	<many-to-one name="authorTarget" column="author_target" class="Author" not-null="false" cascade="none"/>
+	   	<property name="mesgSourceId" column="mesg_source" />
+	   	<property name="mesgTargetId" column="mesg_target" />
+	   	
+	</class>
+	
+	
+	<class name="Discussion" table="source">
+		<id name="id" column="id">
+			<generator class="increment"/>
+		</id>
+		
+	    <property name="name" column="source"/>
+	    <property name="url" column="urlsource"/>   		
+   		<property name="source" column="sourcemere"/>
+   		<property name="lang" column="langue"/>
+   		<property name="nb" column="nb"/>
+   		<property name="theme" column="theme"/>
+   		<property name="type" column="type"/>
+   		<property name="created" column="created"/> 
+   		<property name="fetched" column="fetched"/>
+   		
+   		<one-to-one name="article" class="Article" property-ref="discussion" cascade="delete"/>
+   		<bag name="allComments" table="messgearticle" cascade="delete" where="type=0">
+   			<key column="source_id" />
+   			<one-to-many class="Comment"/>
+   		</bag>   		
+	</class>
+	
+    
+   
+	
+	
+	<class name="Entry" table="messgearticle" discriminator-value="-1" check="type in (-1, 0, 1)">
+		<id name="id" column="num_mesg">
+			<generator class="increment"/>
+		</id>
+		
+		<discriminator column="type" type="integer"/>		
+		<!-- <timestamp column="DATE_SYS" name="systemDate" /> -->
+				
+		<many-to-one name="discussion" column="source_id" cascade="save-update" class="Discussion" not-null="false" />
+		<many-to-one name="author" column="nom_auteur" class="Author" not-null="false" cascade="none"/>
+   		<many-to-one name="url" column="url" class="Url" cascade="none" />
+   		<many-to-one name="title" column="titre" class="Title" cascade="none"/>
+   		<property name="body" column="message" />
+   		<property name="updated" column="date" />
+   		<property name="parentId" column="replies" />
+   		
+   		<bag name="replies" table="messgearticle" cascade="delete" where="type=0">
+   			<key column="replies" />
+   			<one-to-many class="Comment"/>
+   		</bag>
+   		
+   		<subclass name="Comment" discriminator-value="0">
+			<!-- no declared properties so far --> 
+    	</subclass>
+		<subclass name="Article" discriminator-value="1">
+		    <!-- no declared properties so far --> 
+    	</subclass>
+	</class>
+
+</hibernate-mapping>

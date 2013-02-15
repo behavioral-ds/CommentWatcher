@@ -1,0 +1,131 @@
+#-------------------------------------------------------------------------------
+# Copyright (c) 2013 Marian-Andrei RIZOIU.
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the GNU Public License v3.0
+# which accompanies this distribution, and is available at
+# http://www.gnu.org/licenses/gpl.html
+# 
+# Contributors:
+#     Marian-Andrei RIZOIU - initial API and implementation
+#-------------------------------------------------------------------------------
+<html>
+<h1>Guide d'utilisateur</h1>
+<h2>Ce guide va vous donner une petite présentation des possibilités du programme à l'aide des "hypothèses"</h2>
+<p>Un exemple de l'« environnement » de travail d'un utilisateur-analyseur visuel peut être
+illustré à l'aide de l'image ci-dessous</p>
+
+<p><img src="/lab/eric/visualizer/view/guide/image0.jpg" ></img></p>
+
+<h3>Hypothèse1 : on souhaite savoir par exemple en quoi consistent les topics 9 et 0.</h3>
+<p>Lancez l'application. La fenêtre d'accueil est illustrée dans l'image ci-dessous</p>
+<p><img src="image1.jpg" ></img></p>
+<p>
+Sélectionnez « Fichier » -> « Ouvrir un fichier XML » 
+(Attention : si le fichier est trop volumineux, > 30 Mo, 
+il faut attribuer plus de mémoire à la machine virtuelle Java. 
+Pour cela relancer l'application, exemple pour donner 1Go de mémoire avec ligne de commende : 
+java -jar -Xmx1024m visualiseur.jar ). Choisissez le fichier. 
+Selon la taille du fichier cela prend un peu de temps pour le chargement en mémoire. 
+Quand c'est prêt le status bar indique « le fichier XML est prêt pour la visualisation ». 
+Sélectionnez « Visualiseurs » -> « Par phrases-clés ». 
+Dans le visualiseur laissez cochés seulement les topics 9 et 0.  
+Dans le nuage de mots les couleurs indiquent les topics d'appartenance et les différentes tailles de 
+police représentent l'importance d'apparition de ces phrases. 
+On voit clairement qu'il s'agit des types de discussions sur la Tunisie (topic 9) et 
+probablement sur les droits de l'homme en Arabie Saoudite (topic 0). 
+Pour encore plus d'idées sur les topics, augmentez le nombre maximal de phrases clés à afficher. 
+L'image ci-dessous l'illustre
+</p>
+<p><img src="image2.jpg" ></img></p>
+
+<h3>Hypothèse 2. Comment évolue le topic0 dans le temps dans l'article « liban » de la source « rue89 » ?.</h3>
+<p>
+Sélectionnez « Visualiseurs » -> « Par graphiques ». Dans le visualiseur graphique les entêtes de la 
+table représentent les sources de commentaires. Dans l'affichage par article chaque cellule 
+représente l'évolution des topics sélectionnés. Descendez vers la source « rue89 » avec 
+l'icône et naviguez le scroller pour trouver le graphique avec le titre « liban ». 
+On voit clairement que les réactions ont commencé brutalement au début de la publication de l'article : 
+environ 5 août 2010, c'est normal. Après quelque temps, vers 5 septembre 
+le nombre de commentaires atteigne  un maximum local. 
+Finalement le dernier commentaire dans ce topic a été posté vers 5 décembre 2010. 
+Pour une visualisation plus fine cliquez deux fois sur le graphique, 
+cela va ouvrir le graphique dans une fenêtre qui pourra être maximisée selon les besoins.
+</p>
+<h3>Hypothèse 3. Comment évolue le topic0 dans le temps dans toute la source « rue89 » ?</h3>
+<p>
+La même procédure que pour la solution 2, il suffit de choisir le bouton radio « Par source » de 
+visualiseur graphique. Le choix du nombre d'intervalles de temps permettra de voir par exemple 
+le niveau de concentration des commentaires
+</p>
+<h3>Hypothèse 4. On n'est pas satisfait par les phrases clés, 
+peut-on voir un exemple d'un commentaire aléatoire  pris d'une source (« rue89 ») 
+dans une période (de 5/09/2010 à 8/09/2010), dans un topic (0), dans un article (« liban ») 
+sélectionnés ?</h3>
+<p>
+Cliquez une fois sur le graphique « liban » pour activer l'interactivité. 
+Trouvez la période souhaitée. Les gros points représentent les périodes et facilitent la sélection. 
+Bougez la souris sur le gros point souhaité. Le curseur prend la forme de la main et un tooltip en jaune apparaît. 
+Avant que le tooltip disparaît taper 'v'. Le contenu d'un commentaire aléatoire s'affiche. 
+C'est illustré dans l'image ci-dessous
+</p>
+<p><img src="image3.jpg" ></img></p>
+
+<p>
+S'il y a plusieurs topics qui ont ce point en commun, d'abord un topic est pris au hasard. 
+Ensuite un commentaire de ce topic est pris au hasard qui appartient à la période sélectionnée. 
+Le mode d'affichage de commentaire(s) peut être sélectionné directement dans le tooltip. 
+Si vous souhaitez tous les commentaires au lieu d'un seul aléatoire, choisissez le bouton radio 
+« Tous les commentaires », un champ de texte apparaît, entrez le nombre maximal de commentaires 
+(par défaut=10). (Attention : tout affichage du contenu nécessite l'accès à la base de données, 
+pour le configurer c'est dans le fichier config.xml).
+Cet affichage après peut être généralisé pour comprendre tous les articles. 
+Encore une fois, pour un affichage plus clair double-cliquez sur le graphique.
+</p>
+<h3>Hypothèse 5. On souhaite savoir comment les commentaires sont distribués selon les topics. 
+Quel est le topic qui a généré le plus de réactions ?</h3>
+<p>
+Sélectionnez l'affichage « par source » ou « par article ». 
+Cocher tous les topics. Mettez pour nombre d'intervalles de temps la valeur 1. 
+L'image ci-dessous l'illustre
+</p>
+
+<p><img src="image4.jpg"></img></p>
+<p>
+Ici on voit clairement les topics selon le nombre de commentaires qui indique l'importance de 
+chacun dans le type d'affichage sélectionné (ici sur tous les articles de la source « liberation »). 
+C'est le topic8 qui semble le plus discuté (219 commentaires).
+</p>
+
+
+<h3>Hypothèse 6. On souhaite savoir comment les topics 9 et 0 s'interagissent, 
+sont-ils corrélés, sont-ils différents, peut-on aussi avoir une petite idée sur ces 
+topics en même temps que l'analyse graphique, etc. ?</h3>
+
+<p>
+On peut répondre à toutes ces questions : ouvrez les deux types de visualisation. 
+Cochez les topics 9 et 0. (Changement de la configuration sur une visualisation suffit, 
+toutes les fenêtres sont synchronisées).
+
+Sélectionnez « Fenêtre » -> « En carrelage ». 
+Vous allez retrouver l'image qui est présentée en plus haut pour donner un 
+exemple d'« environnement » de l'analyseur.
+
+Pour fermer toutes les fenêtres : « Fenêtre » -> « Fermer tous »
+Pour basculer rapidement d'une fenêtre à l'autre : « Fenêtre » -> le nome de la fenêtre. 
+Si vous souhaitez afficher l'aide d'utilisation en travaillant : « Aide » ->  « Guide d'utilisateur ».
+
+Pour supprimer un topic seulement dans un graphique mais pas dans les autres bouger la 
+souris sur le gros point (période de temps) souhaité. La souris prend la forme de la main. 
+Cliquez droit pour afficher le menu contextuel et choisissez « supprimer ce topic ». 
+Le topic disparaît de ce graphique. C'est illustré ci-dessous.
+</p>
+
+<p><img src="image5.jpg" ></img></p>
+<p>
+N'hésitez pas à nous envoyer vos opinions et suggestions d'amélioration à 
+<a href="mailto:Marian-Andrei.Rizoiu@univ-lyon2.fr">Marian-Andrei.Rizoiu@univ-lyon2.fr</a>
+</p>
+
+
+
+</html>

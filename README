@@ -1,16 +1,14 @@
 
-Title: DataFetcher installation guide:
+Title: CommentWatcher installation guide:
 Author: Marian-Andrei RIZOIU
 
-Steps to install DataFetcher (on a unix machine):
-- Use Tomcat Manager to deploy the "DataFetcher.war" web archive ;
+Steps to install CommentWatcher (on a unix machine):
+- Use Tomcat Manager to deploy the "CommentWatcher.war" web archive ;
 - Unzip the content of the "analyse.tar.bz2" in the folder "/opt" ;
 - execute by typing in your browser the address indicated by Tomcat Manager for the installed application.
 
 Notes: 
 1) the WAR archive is optimized for Apache Tomcat 7.
-2) Public Mercurial repository address: http://eric.univ-lyon2.fr/~arizoiu/cgi-bin/DataFetcher.cgi/DataFetcher/
-	user: public
-	password: public
+2) Public Mercurial repository address: http://eric.univ-lyon2.fr/~commentwatcher/cgi-bin/CommentWatcher.cgi/CommentWatcher/
 3) License: GNU General Public License (GPL) v3.
 

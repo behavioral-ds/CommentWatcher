@@ -1,9 +1,6 @@
-**Title:** CommentWatcher installation guide
-
-**Author:** Marian-Andrei RIZOIU (Marian-Andrei@rizoiu.eu)
-
-**Website:** http://rizoiu.eu/commentwatcher/Home.html
-
+**Title:** CommentWatcher installation guide  
+**Author:** Marian-Andrei RIZOIU (Marian-Andrei@rizoiu.eu)  
+**Website:** http://rizoiu.eu/commentwatcher/Home.html  
 **Video demostration:** http://rizoiu.eu/commentwatcher/Video_demonstration.html
 
 Description:

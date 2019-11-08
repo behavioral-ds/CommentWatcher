@@ -2,6 +2,10 @@
 
 **Author:** Marian-Andrei RIZOIU (Marian-Andrei@rizoiu.eu)
 
+**Website:** http://rizoiu.eu/commentwatcher/Home.html
+
+**Video demostration:** http://rizoiu.eu/commentwatcher/Video_demonstration.html
+
 Description:
 ---
 CommentWatcher is an open source tool aimed at analyzing discussions on web forums.
@@ -11,6 +15,10 @@ Constructed as a web platform, CommentWatcher features automatic mass fetching o
 Our platform addresses the issues of the diversity and dynamics of structures of webpages hosting the forums by implementing a parser architecture that is independent of the HTML structure of webpages. This allows easy on-the-fly adding of new websites.
 
 Two types of users are targeted: end users who seek to study the discussed topics and their temporal evolution, and researchers in need of establishing a forum benchmark dataset and comparing the performances of analysis tools.
+
+Citation:
+---
+Rizoiu, M.-A., Guille, A., & Velcin, J. (2015). CommentWatcher: An Open Source Web-based platform for analyzing discussions on web forums. ArXiv Preprint. Retrieved from http://arxiv.org/abs/1504.07459
 
 Installation:
 ---
@@ -22,6 +30,5 @@ Steps to install CommentWatcher (on a unix machine):
 Notes: 
 ---
 1) the WAR archive is optimized for Apache Tomcat 7.
-2) Public Mercurial repository address: http://eric.univ-lyon2.fr/~commentwatcher/cgi-bin/CommentWatcher.cgi/CommentWatcher/
+2) Previous Mercurial repository address: http://eric.univ-lyon2.fr/~commentwatcher/cgi-bin/CommentWatcher.cgi/CommentWatcher/
 3) License: GNU General Public License (GPL) v3.
-
